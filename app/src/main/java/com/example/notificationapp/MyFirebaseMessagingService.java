@@ -39,7 +39,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         String channelId = "default_channel_id";
         String channelName = "Default Channel";
 
-        // Create notification channel (for Android 8+)
+ 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(
                     channelId, channelName, NotificationManager.IMPORTANCE_HIGH
@@ -61,7 +61,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         );
 
 
-        // Build the notification
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, channelId)
                 .setSmallIcon(R.drawable.ic_launcher_foreground)
                 .setContentTitle(title)
@@ -70,7 +69,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true);
 
-        // Show only if permission is granted
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
                 ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS)
                         == PackageManager.PERMISSION_GRANTED) {
@@ -84,6 +82,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     public void onNewToken(@NonNull String token) {
         super.onNewToken(token);
         Log.d("FCM", "New token: " + token);
-        // You can upload the new token to your server if needed
+        
     }
 }
