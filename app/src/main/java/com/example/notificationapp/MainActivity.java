@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         FirebaseApp.initializeApp(this);
         setContentView(R.layout.activity_main);
 
-        // 🔒 Request POST_NOTIFICATIONS permission (Android 13+)
+        
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
                 requestPermissions(new String[]{Manifest.permission.POST_NOTIFICATIONS}, 101);
@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
         statusText = findViewById(R.id.statusText);
         tokenButton = findViewById(R.id.tokenButton);
 
-        // ✅ Show FCM Token
         tokenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // ✅ Handle notification click: display title/message
+       
         Intent intent = getIntent();
         String title = intent.getStringExtra("title");
         String message = intent.getStringExtra("message");
