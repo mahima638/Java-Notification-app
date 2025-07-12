@@ -1,7 +1,7 @@
 plugins {
     alias(myLibs.plugins.androidApplication)
     alias(myLibs.plugins.kotlinAndroid)
-    alias(myLibs.plugins.google.services) // Firebase plugin
+    alias(myLibs.plugins.google.services) 
 }
 
 android {
@@ -44,13 +44,13 @@ dependencies {
     implementation("androidx.core:core:1.12.0")
 
 
-    // Firebase BOM - Bill of Materials
+    
     implementation(platform(myLibs.firebase.bom))
 
-    // Firebase Core (analytics)
+   
     implementation(myLibs.firebase.core)
 
-    // Firebase Messaging
+   
     implementation("com.google.firebase:firebase-messaging:24.0.0")
 
     testImplementation(myLibs.junit)
